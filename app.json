@@ -1,0 +1,22 @@
+{
+  "name": "Stockify",
+  "description": "A Twilio integration app that helps you track the stock market.",
+  "image": "heroku/python",
+  "repository": "https://github.com/Cigarent/Stockify.git",
+  "keywords": ["python", "django" ],
+  "addons": [ "heroku-postgresql" ],
+  "env": {
+    "SECRET_KEY": {
+      "description": "The secret key for the Django application.",
+      "generator": "secret"
+    }
+  },
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "python manage.py collectstatic --noinput",
+        "test": "python manage.py test"
+      }
+    }
+  }
+}
