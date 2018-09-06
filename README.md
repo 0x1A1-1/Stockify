@@ -43,14 +43,9 @@ $ pip install pipenv
 $ pipenv install
 $ pipenv shell
 
-$ createdb stockify-db
-
 $ python manage.py migrate
 $ python manage.py collectstatic
-```
- Note that you will need to uncomment the
- @csrf_exempt decorator in order to run locally.
-```sh
+
 $ heroku local
  ```
 
@@ -93,13 +88,18 @@ Once the Twilio Flow is deployed, add that flow to the incoming SMS of
 the Twilio that you purchased.
 
 ## Deploying to Heroku
+If you are using Heroku for deployment, head over to settings page of your project,
+add 
+`URL_BASE`
+`ACCOUNT_SID`
+`AUTH_TOKEN`
+`TWLO_CELL`
+and their corresponding value into the form.
 
 ```sh
-$ heroku create
 $ git push heroku master
 
 $ heroku run python manage.py migrate
-$ heroku open
 ```
 
 ## Bonus Step: Setting up daily market open/close update

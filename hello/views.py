@@ -23,7 +23,7 @@ def index(request):
     r = requests.get('http://httpbin.org/status/418')
     return HttpResponse('<pre>' + r.text + '</pre>')
 
-#@csrf_exempt
+@csrf_exempt
 def get_one(request):
     if request.method == "POST":
         stock_table = Stock()
@@ -40,7 +40,7 @@ def get_one(request):
 
     return HttpResponse(200)
 
-#@csrf_exempt
+@csrf_exempt
 def get_all(request):
     if request.method == "POST":
         phone_number = request.body.decode('utf-8')
@@ -71,7 +71,7 @@ def get_all(request):
                 body="No records found")
             return HttpResponse(400)
 
-#@csrf_exempt
+@csrf_exempt
 def refresh(request):
     if request.method == "POST":
         if request.body.decode('utf-8') == "refresh":
@@ -99,7 +99,7 @@ def refresh(request):
 
     return HttpResponse(200)
 
-#@csrf_exempt
+@csrf_exempt
 def add(request):
     if request.method == "POST":
 
@@ -134,7 +134,7 @@ def add(request):
 
     return HttpResponse(200)
 
-#@csrf_exempt
+@csrf_exempt
 def remove_stock(request):
     if request.method == "POST":
 
@@ -157,7 +157,7 @@ def remove_stock(request):
 
     return HttpResponse(200)
 
-#@csrf_exempt
+@csrf_exempt
 def unsubscribe(request):
     if request.method == "POST":
         from_cell = request.body.decode('utf-8')
